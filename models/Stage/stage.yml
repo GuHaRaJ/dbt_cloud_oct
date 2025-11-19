@@ -1,0 +1,81 @@
+models:
+  - name: stg_regions
+    description: Table with all region information
+    columns:
+      - name: region_id
+        description: "{{ doc('primary_key') }}"
+        data_tests:
+          - unique
+          - not_null
+      - name: name
+        description: Region name
+        data_tests:
+          - accepted_values:
+              config:
+                store_failures: true
+                schema: error
+              arguments:
+                values: ['ASIA', 'AFRICA', 'AMERICA']
+
+  - name: stg_nations
+    description: Table with nation information
+    columns:
+      - name: nation_id
+        description: "{{ doc('primary_key') }}"
+        data_tests:
+          - unique
+          - not_null
+      - name: n_regionid
+        description: "{{ doc('foreign_key') }}"
+        data_tests:
+          - not_null
+          - relationships:
+              arguments:
+                to: ref('stg_regions')
+                field: region_id
+
+  - name: stg_customers
+    description: Table with customer information
+    columns:
+      - name: customer_id
+        description: "{{ doc('primary_key') }}"
+        data_tests:
+          - unique
+          - not_null
+      - name: nation_id
+        description: "{{ doc('foreign_key') }}"
+        data_tests:
+          - relationships:
+              arguments:
+                to: ref('stg_nations')
+                field: nation_id
+
+  - name: stg_orders
+    description: Table with order information
+    columns:
+      - name: order_id
+        description: "{{ doc('primary_key') }}"
+        data_tests:
+          - unique
+          - not_null
+      - name: customer_id
+        description: "{{ doc('foreign_key') }}"
+        data_tests:
+          - relationships:
+              arguments:
+                to: ref('stg_customers')
+                field: customer_id
+      - name: status_code
+        description: Order status flag
+        data_tests:
+          - accepted_values:
+              config:
+                store_failures: true
+              arguments:
+                values: ['P', 'F', 'O']
+
+  - name: stg_line_items
+    description: All items for each order
+    columns:
+      - name: order_item_id
+        description: "{{ doc('primary_key') }} Surrogate key column for order items"
