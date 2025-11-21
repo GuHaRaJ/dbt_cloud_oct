@@ -104,7 +104,7 @@ models:
               config:
                 store_failures: true
               arguments:
-                values: ['P', 'F', 'O']
+                values: ['P', 'F', 'O','B']
 
   - name: stg_line_items
     description: All items for each order
