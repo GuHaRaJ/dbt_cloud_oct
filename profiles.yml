@@ -1,4 +1,4 @@
-dbt_cloud_oct_1:
+dbt_cloud_oct:
   outputs:
     dev:
       account: MWB11869
@@ -11,5 +11,6 @@ dbt_cloud_oct_1:
       user: sachin
       warehouse: transform_wh
   target: dev
+
 
 
