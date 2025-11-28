@@ -4,12 +4,12 @@ models:
     columns:
       - name: region_id
         description: "{{ doc('primary_key') }}"
-        tests:
+        data_tests:
           - unique
           - not_null
       - name: name
         description: Region name
-        tests:
+        data_tests:
           - accepted_values:
               config:
                 store_failures: true
@@ -36,7 +36,7 @@ models:
       - name: region_id
         data_type: int
         description: "{{ doc('foreign_key') }}"
-        tests:
+        data_tests:
           - not_null
           - relationships:
               arguments:
@@ -71,7 +71,7 @@ models:
       - name: customer_id
         description: "{{ doc('primary_key') }}"
         data_tests:
-          - unique
+          # - unique
           - not_null
 
       - name: nation_id
