@@ -51,7 +51,7 @@ models:
       
 
     config:
-      group: sales
+      # group: sales
       contract: 
         enforced: true 
 
@@ -61,7 +61,7 @@ models:
 
     config:
       materialized: table
-      group: sales
+      # group: sales
       # pre-hook:
       #   - "select * from SOURCEDB.MK_MALL.REGIONS"
       # post-hook:
