@@ -1,5 +1,4 @@
--- {{ config(schema='new') }}
-{{ config(group="sales") }}
+
 
 
 with region as (
