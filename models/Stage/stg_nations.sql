@@ -1,9 +1,8 @@
 {{ config(
-   query_tag = 'test1' ,
+   query_tag = 'test1',
    alias = this.name + var('v_id'),
-    access = 'public'
+   access = 'public'
 ) }}
-
 
 with nation as (
     select 
@@ -11,7 +10,10 @@ with nation as (
         n_name as name,
         n_regionkey as region_id,
         updated_at
-    from {{ source ('src', 'nations') }}
+    from {{ source('src', 'nations') }}
 )
 
-select * from nation
+select
+    *,
+    {{dbt_meta() }}
+from nation

@@ -31,6 +31,9 @@ END
 -- {% endmacro %}
 
 
+
+
+
 {% macro show_employee() %}
   {% set query = "select name from " ~ ref('stg_employees') %}
   {% set results = run_query(query) %}
@@ -54,6 +57,14 @@ END
         " partition by (nation_id) file_format = (type = csv compression = none) header = true"
     ) %}
 {% endmacro %}
+
+
+{% macro dbt_meta() %}
+    '{{ invocation_id }}'::varchar as dbt_batch_id,
+    '{{ run_started_at }}'::timestamp as dbt_batch_ds
+{% endmacro %}
+
+
 
 
 
