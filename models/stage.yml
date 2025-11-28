@@ -16,8 +16,8 @@ models:
                 schema: error
               arguments:
                 values: ['ASIA', 'AFRICA', 'AMERICA','EUROPE','MIDDLE EAST','SOUTH EAST']
-    config:
-      group: sales
+    # config:
+    #   group: sales
 
   - name: stg_nations
     description: Table with nation information
