@@ -6,8 +6,13 @@ name: 'Analytics'
 version: '1.0.0'
 config-version: 2
 
+<<<<<<< HEAD
 # This setting configures which "profile" dbt uses for this project...
 profile: 'default'
+=======
+# This setting configures which "profile" dbt uses for this project.
+profile: 'dbt_cloud_oct'
+>>>>>>> 1e6aa1e559e2a01cd71126ac5f8fe5bf20473b8f
 
 # These configurations specify where dbt should look for different types of files.
 # The `model-paths` config, for example, states that models in this project can be
@@ -40,12 +45,7 @@ vars:
 # using the `{{ config(...) }}` macro.
 
 models:
-  Analytics:
-    # Applies to all files under models/example/
-    # example:
-    #   +materialized: table
-      stage:
-          +materialized: table
-
-
-
+  Analytics:      # This should match the top-level folder name under models/
+    Stage:        # This should match the folder under models/Analytics/stage/
+      +materialized: table
+  

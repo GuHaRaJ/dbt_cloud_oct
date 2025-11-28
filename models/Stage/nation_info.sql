@@ -1,8 +1,0 @@
-
-with nr as (
-select n.nation_id,n.name n_name,r.name r_name,n.region_id,n.comments from {{ref('stg_nations')}} n
-join {{ref('stg_regions')}} r
-on n.region_id=r.region_id
-)
-
-select * from nr

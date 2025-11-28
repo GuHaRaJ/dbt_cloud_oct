@@ -1,4 +1,7 @@
-{{ config(materialized = 'view') }}
+{{ config(
+    materialized='table',
+    
+) }}
 
 
 with customer as (
@@ -15,4 +18,3 @@ from {{ source ('src', 'customers') }}
 )
 
 select * from customer
-
