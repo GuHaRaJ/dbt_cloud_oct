@@ -1,5 +1,5 @@
-models:
-  - name: int_customers
-    config:
-      group: sales
-
+# models:
+#   - name: int_customers
+#     config:
+#       group: sales
+##

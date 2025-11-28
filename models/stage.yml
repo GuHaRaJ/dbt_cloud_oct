@@ -16,8 +16,8 @@ models:
                 schema: error
               arguments:
                 values: ['ASIA', 'AFRICA', 'AMERICA','EUROPE','MIDDLE EAST','SOUTH EAST']
-    config:
-      group: sales
+    # config:
+    #   group: sales
 
   - name: stg_nations
     description: Table with nation information
@@ -51,9 +51,11 @@ models:
       
 
     config:
-      group: sales
+      # group: sales
+      schema: dbt_g_dbt
       contract: 
         enforced: true 
+
 
   
   - name: stg_customers
@@ -61,7 +63,8 @@ models:
 
     config:
       materialized: table
-      group: sales
+      schema: dbt_g_dbt
+      # group: sales
       # pre-hook:
       #   - "select * from SOURCEDB.MK_MALL.REGIONS"
       # post-hook:
