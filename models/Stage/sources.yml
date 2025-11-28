@@ -5,6 +5,11 @@ sources:
     tables:
       - name: customers
       - name: nations
+        columns:
+          - name: n_nationkey
+            data_type: int
+            constraints:
+              - type: not_null
       - name: regions
       - name: v_nations
       - name: lineitems
@@ -12,13 +17,13 @@ sources:
       - name: suppliers
 
       - name: partsupps
-      - name: orders
       
-        config:
-          freshness:
-            warn_after: {count: 3, period: day}
-            error_after: {count: 3, period: day}
-          loaded_at_field: o_orderdate::timestamp_ntz
+      - name: orders
+        freshness:
+          warn_after: {count: 3, period: day}
+          error_after: {count: 3, period: day}
+        loaded_at_field: o_orderdate::timestamp_ntz
+
 
   - name: src_1
     database: MKMOTORS_DEV
