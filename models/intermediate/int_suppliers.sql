@@ -1,6 +1,5 @@
 {{config(
     tags = 'sample'
-
 )}}
 
 with suppliers as (
@@ -18,7 +17,7 @@ regions as (
     from {{ ref('stg_regions') }}
 )
 
-select s.* exclude (nation_id),n.name as nation_name,r.name as region_name
+select s.* exclude (nation_id),n.name as nation_name,r.name as region_name,
 
 from suppliers s
 join nations n
