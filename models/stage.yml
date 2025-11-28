@@ -16,71 +16,70 @@ models:
                 schema: error
               arguments:
                 values: ['ASIA', 'AFRICA', 'AMERICA','EUROPE','MIDDLE EAST','SOUTH EAST']
-    config:
-      group: sales
+   
 
-  - name: stg_nations
-    description: Table with nation information
-    columns:
-      - name: nation_id
-        data_type: int
-        constraints:
-          - type: not_null
-        description: "{{ doc('primary_key') }}"
-        # data_tests:
-        #   # - unique
-        #   - not_null
-      - name: name
-        data_type: string
+  # - name: stg_nations
+  #   description: Table with nation information
+  #   columns:
+  #     - name: nation_id
+  #       data_type: int
+  #       constraints:
+  #         - type: not_null
+  #       description: "{{ doc('primary_key') }}"
+  #       # data_tests:
+  #       #   # - unique
+  #       #   - not_null
+  #     - name: name
+  #       data_type: string
 
-      - name: region_id
-        data_type: int
-        description: "{{ doc('foreign_key') }}"
-        data_tests:
-          - not_null
-          - relationships:
-              arguments:
-                to: ref('stg_regions')
-                field: region_id
-      - name: updated_at
-        data_type: timestamp
-      # - name: dbt_batch_id
-      #   data_type: string
-      # - name: dbt_batch_ds
-      #   data_type: timestamp
+  #     - name: region_id
+  #       data_type: int
+  #       description: "{{ doc('foreign_key') }}"
+  #       data_tests:
+  #         - not_null
+  #         - relationships:
+  #             arguments:
+  #               to: ref('stg_regions')
+  #               field: region_id
+  #     - name: updated_at
+  #       data_type: timestamp
+  #     # - name: dbt_batch_id
+  #     #   data_type: string
+  #     # - name: dbt_batch_ds
+  #     #   data_type: timestamp
       
 
-    config:
-      group: sales
-      contract: 
-        enforced: true 
+  #   config:
+  #     # group: sales
+  #     contract: 
+  #       enforced: true 
 
   
-  - name: stg_customers
-    description: Table with customer information
+  # - name: stg_customers
+  #   description: Table with customer information
 
-    config:
-      materialized: table
-      group: sales
-      # pre-hook:
-      #   - "select * from SOURCEDB.MK_MALL.REGIONS"
-      # post-hook:
-      #   - "select * from ANALYTICS.DBT_G_DBT.STAGE_REGIONS"
+  #   config:
+  #     materialized: table
+  #     # group: sales
+  #     # pre-hook:
+  #     #   - "select * from SOURCEDB.MK_MALL.REGIONS"
+  #     # post-hook:
+  #     #   - "select * from ANALYTICS.DBT_G_DBT.STAGE_REGIONS"
 
-    columns:
-      - name: customer_id
-        description: "{{ doc('primary_key') }}"
-        # data_tests:
-        #   # - unique
-        #   - not_null
+  #   columns:
+  #     - name: customer_id
+  #       description: "{{ doc('primary_key') }}"
+  #       # data_tests:
+  #       #   # - unique
+  #       #   - not_null
 
-      - name: nation_id
-        description: "{{ doc('foreign_key') }}"
-        tests:
-          - relationships:
-              arguments:
-                to: ref('stg_nations')
-                field: nation_id
+  #     - name: nation_id
+  #       description: "{{ doc('foreign_key') }}"
+  #       tests:
+  #         - relationships:
+  #             arguments:
+  #               to: ref('stg_nations')
+  #               field: nation_id
 
     
     
