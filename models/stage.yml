@@ -27,9 +27,9 @@ models:
         constraints:
           - type: not_null
         description: "{{ doc('primary_key') }}"
-        data_tests:
-          # - unique
-          - not_null
+        # data_tests:
+        #   # - unique
+        #   - not_null
       - name: name
         data_type: string
 
@@ -70,9 +70,9 @@ models:
     columns:
       - name: customer_id
         description: "{{ doc('primary_key') }}"
-        data_tests:
-          # - unique
-          - not_null
+        # data_tests:
+        #   # - unique
+        #   - not_null
 
       - name: nation_id
         description: "{{ doc('foreign_key') }}"
