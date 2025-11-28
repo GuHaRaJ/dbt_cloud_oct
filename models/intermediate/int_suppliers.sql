@@ -1,6 +1,4 @@
-{{config(
-    tags = 'sample'
-)}}
+
 
 with suppliers as (
     select *
