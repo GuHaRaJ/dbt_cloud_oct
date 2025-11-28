@@ -14,6 +14,5 @@ with nation as (
 )
 
 select
-    *,
-    {{dbt_meta() }}
+    *
 from nation
