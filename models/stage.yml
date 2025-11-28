@@ -61,6 +61,7 @@ models:
 
     config:
       materialized: table
+      schema: dbt_g_dbt
       # group: sales
       # pre-hook:
       #   - "select * from SOURCEDB.MK_MALL.REGIONS"
