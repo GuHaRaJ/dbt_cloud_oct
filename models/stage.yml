@@ -52,8 +52,10 @@ models:
 
     config:
       # group: sales
+      schema: dbt_g_dbt
       contract: 
         enforced: true 
+
 
   
   - name: stg_customers
