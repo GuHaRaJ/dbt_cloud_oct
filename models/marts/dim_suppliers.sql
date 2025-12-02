@@ -12,7 +12,7 @@ with supps as(
     from {{ref('int_suppliers')}}
 
     {% if is_incremental() %}
-    where updated_time < (select max(updated_time) from {{ this }})
+    where updated_time < (select max(updated_time) from {{this}})
     {% endif %}
 )
 
